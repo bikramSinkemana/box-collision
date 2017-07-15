@@ -3,6 +3,11 @@ function Animator(boxes, container) {
   var that = this;
   this.boxes = boxes;
   this.container = container;
+  this.mouseX;
+  this.mouseY;
+  this.velocityX;
+  this.velocityY;
+  this.clicked=false;
 
   this.animate = function () {
     intervalId = setInterval(function () {

@@ -25,27 +25,12 @@ function BoxCollision(elementId) {
     }
     var box = new Box();
     box.name = "box";
-    box.color = "green";
+    box.color = "black";
     box.create();
     boxes.push(box);
 
-    var box2 = new Box();
-    box.name = "boxdsf";
-    box2.color="purple";
-    box2.create();
-    box2.setPosition(600, 300);
-    boxes.push(box2);
-
-     var box3 = new Box();
-     box.name = "boxdfadsf";
-     box3.color="grey";
-    box3.create();
-    box3.setPosition(600, 500);
-    boxes.push(box3);
-
     container.append(box.element);
-    container.append(box2.element);
-    container.append(box3.element);
+  
 
     element.appendChild(container.element);
 
