@@ -3,7 +3,7 @@ function Box(x, y) {
   this.y = y ||20;
   this.height = 50;
   this.width = 50;
-  this.velocity;
+  this.velocity=0;
   this.color = 'blue';
 
   this.name = "";

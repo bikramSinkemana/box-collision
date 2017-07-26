@@ -8,7 +8,7 @@ function Animator(boxes, container) {
   this.velocityX;
   this.velocityY;
   this.clicked=false;
-  var speed=4;
+  var speed=3;
 
   this.animate = function () {
    
@@ -51,6 +51,7 @@ function Animator(boxes, container) {
         // that.checkWallCollision(box);
         // that.checkBoxCollision();
       });
+          that.checkBoxCollision();
     }, 1);
   }
 
@@ -95,48 +96,73 @@ box.angle=(2*Math.PI)-box.angle;
           for (var j = i; j < that.boxes.length; j++) {
             
          
-        if (boxes[i] !=boxes[j]) {
-                        
-                      /*  if (rect1.x < rect2.x + rect2.width &&
-               rect1.x + rect1.width > rect2.x &&
-               rect1.y < rect2.y + rect2.height &&
-               rect1.height + rect1.y > rect2.y) {
-                // collision detected!
-            }*/
-            if (boxes[i].x<boxes[j].x+boxes[j].width &&
-              boxes[i].x+boxes[i].width>boxes[j].x &&
-              boxes[i].y< boxes[j].y+boxes[j].height &&
-              boxes[i].height + boxes[i].y > boxes[j].y) {
-              debugger;
-              var x=boxes[i].velocityX;
-              boxes[i].velocityX=boxes[j].velocityX;
-              boxes[j].velocityX=x;
+            if (boxes[i] !=boxes[j]) { 
+                            
+                         
+                if (boxes[i].x<boxes[j].x+boxes[j].width &&
+                  boxes[i].x+boxes[i].width>boxes[j].x &&
+                  boxes[i].y< boxes[j].y+boxes[j].height &&
+                  boxes[i].height + boxes[i].y > boxes[j].y) {
+                  debugger;
+                  // var x=boxes[i].velocityX;
+                  // boxes[i].velocityX=boxes[j].velocityX;
+                  // boxes[j].velocityX=x;
 
-              var y=boxes[i].velocityY;
-              boxes[i].velocityY=boxes[j].velocityY;
-              boxes[j].velocityY=y;
-              while(boxes[i].x<boxes[j].x+boxes[j].width &&
-              boxes[i].x+boxes[i].width>boxes[j].x &&
-              boxes[i].y< boxes[j].y+boxes[j].height &&
-              boxes[i].height + boxes[i].y > boxes[j].y
-              ){
-               
-               boxes[i].move();
-             boxes[j].move();
-             debugger;
+                  // var y=boxes[i].velocityY;
+                  // boxes[i].velocityY=boxes[j].velocityY;
+                  // boxes[j].velocityY=y;
 
-              }
-              
+                      if(boxes[i].movement==false) {
+                        boxes[i].movement=true;
+                        debugger;
+                      }
+                      else if (boxes[j].movement==false){
+                        boxes[j].movement=true;
+                        debugger;
+                      }
+                      if(boxes[i].velocity==0){
+                        boxes[i].angle=boxes[j].angle;
+                        boxes[j].angle=Math.PI+boxes[j].angle;
+                        debugger;
+                      }
+                      else if(boxes[j].velocity==0){
+                        boxes[j].angle=boxes[i].angle;
+                        boxes[i].angle=Math.PI+boxes[i].angle;
+                        debugger;
+                      }
+                      else {
+                        var temp=boxes[i].angle;
+                        boxes[i].angle=boxes[j].angle;
+                        boxes[j].angle=temp;
+                        debugger;
+                      }
 
-            }
-       
 
-     
-      }
+
+
+                  
+                 //  while(boxes[i].x<boxes[j].x+boxes[j].width &&
+                 //  boxes[i].x+boxes[i].width>boxes[j].x &&
+                 //  boxes[i].y< boxes[j].y+boxes[j].height &&
+                 //  boxes[i].height + boxes[i].y > boxes[j].y
+                 //  ){
+                   
+                 //   boxes[i].move();
+                 // boxes[j].move();
+                 // debugger;
+
+                 //  }
+                  
+
+                }
+           
+
          
- }
+             }
+             
+           }
      
- }
+         }
   
-}
+   }
 }
